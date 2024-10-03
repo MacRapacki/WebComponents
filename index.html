@@ -3,9 +3,60 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Web components</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script
+            defer
+            type="module"
+            src="/components/PageHeader/PageHeader.js"
+        ></script>
+        <script
+            defer
+            type="module"
+            src="/components/SearchBar/SearchBar.js"
+        ></script>
+        <script
+            defer
+            type="module"
+            src="/components/CustomButton/CustomButton.js"
+        ></script>
+        <script
+            defer
+            type="module"
+            src="/components/NoNotesInfo/NoNotesInfo.js"
+        ></script>
+        <script
+            defer
+            type="module"
+            src="/components/NotesList/NotesList.js"
+        ></script>
+        <script
+            defer
+            type="module"
+            src="/components/FieldText/TextField.js"
+        ></script>
+        <script defer type="module" src="/components/AddNew/AddNew.js"></script>
+        <script defer type="module" src="/components/AddNew/AddNew.js"></script>
+        <script defer type="module" src="./services/notesService.js"></script>
     </head>
     <body>
-        <h1>hi</h1>
+        <div class="container">
+            <page-header></page-header>
+
+            <search-bar active="true"></search-bar>
+
+            <no-notes-info active="true"></no-notes-info>
+
+            <add-new visible="false" active="false"></add-new>
+
+            <notes-list></notes-list>
+        </div>
+        <script type="module" src="main.js"></script>
     </body>
 </html>
