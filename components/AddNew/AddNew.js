@@ -104,8 +104,6 @@ class AddNew extends HTMLElement {
             const id = `id-${(Math.random() * 1000000).toFixed()}`;
 
             if (!!this.idToEdit) {
-                console.log(!!this.idToEdit);
-
                 NotesDataService.UpdateNote(
                     this.getAttribute('edit-id'),
                     this.input.value,

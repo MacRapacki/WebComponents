@@ -72,7 +72,7 @@ template.innerHTML = `
 </style>
 
 
-<button class="default"><img class="disable" src="/../assets/add.jpg" alt="note plus" /><slot></slot></button>
+<button class="default"><img class="disable" src="./assets/add.jpg" alt="note plus" /><slot></slot></button>
 `;
 
 class CustomButton extends HTMLElement {

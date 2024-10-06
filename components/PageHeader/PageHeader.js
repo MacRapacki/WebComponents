@@ -1,5 +1,3 @@
-import { NotesDataService } from '../../services/notesService.js';
-
 const template = document.createElement('template');
 template.innerHTML = `
         <style>
@@ -20,20 +18,13 @@ template.innerHTML = `
 }
         </style>
         
-        <div class='headerWrapper'><img src='/assets/notes.jpg' alt='Notes' /> <h1>Notes</h1></div>`;
+        <div class='headerWrapper'><img src='./assets/notes.jpg' alt='Notes' /> <h1>Notes</h1></div>`;
 
 class PageHeader extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({ mode: 'open' });
         shadow.append(template.content.cloneNode(true));
-
-        const header = shadow.querySelector('h1');
-        header.addEventListener('click', () => {
-            console.log(document.querySelector('search-bar'));
-
-            // NotesDataService.AddNote(33, 'text');
-        });
     }
 }
 

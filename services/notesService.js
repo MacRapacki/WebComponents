@@ -12,7 +12,6 @@ export class NotesDataService {
             description,
             date,
         });
-        // console.log(this.state);
     }
 
     static UpdateNote(id, title, description, date) {
@@ -21,11 +20,9 @@ export class NotesDataService {
         note.title = title;
         note.description = description;
         note.date = date;
-        console.log(this.state);
     }
 
     static DeleteNote(id) {
         this.state = this.state.filter((t) => t.id !== id);
-        // console.log(this.state);
     }
 }

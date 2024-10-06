@@ -29,11 +29,7 @@ class SearchBar extends HTMLElement {
         const shadow = this.attachShadow({ mode: 'open' });
         shadow.append(template.content.cloneNode(true));
 
-        this.handleData;
         this.input = shadow.querySelector('input');
-        this.input.addEventListener('keydown', () =>
-            console.log(this.handleData)
-        );
         this.label = shadow.querySelector('label');
     }
 

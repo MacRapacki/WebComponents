@@ -170,8 +170,6 @@ class NotesList extends HTMLElement {
             description.textContent = state.find(
                 (item) => item.id == newValue
             ).description;
-
-            console.log(asd);
         }
     }
 }
