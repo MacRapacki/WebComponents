@@ -76,7 +76,7 @@ class NotesList extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['data-id', 'edited-id'];
+        return ['data-id', 'edited-id', 'search'];
     }
 
     removeChild(id) {
@@ -156,6 +156,19 @@ class NotesList extends HTMLElement {
     attributeChangedCallback(name, old, newValue) {
         if (name === 'data-id') {
             this.createChild(newValue);
+        }
+        if (name === 'search') {
+            const state = NotesDataService.state;
+            const notesList = this.shadowRoot.querySelectorAll('li');
+            notesList.forEach((item) => item.remove());
+
+            if (newValue == '') {
+                return state.forEach((item) => this.createChild(item.id));
+            }
+
+            state
+                .filter((item) => item.description.includes(newValue))
+                .forEach((item) => this.createChild(item.id));
         }
         if (name === 'edited-id') {
             const state = NotesDataService.state;

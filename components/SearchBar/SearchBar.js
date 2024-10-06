@@ -42,19 +42,11 @@ class SearchBar extends HTMLElement {
         shadow.append(template.content.cloneNode(true));
 
         this.input = shadow.querySelector('input');
-        this.label = shadow.querySelector('label');
-    }
-
-    static get observedAttributes() {
-        return ['active', 'handle-data'];
-    }
-
-    attributeChangedCallback(name, old, newValue) {
-        if (name === 'active') {
-            newValue === 'true'
-                ? (this.label.style.display = 'block')
-                : (this.label.style.display = 'none');
-        }
+        this.input.addEventListener('keyup', () => {
+            document
+                .querySelector('notes-list')
+                .setAttribute('search', this.input.value);
+        });
     }
 }
 
