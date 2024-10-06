@@ -137,7 +137,12 @@ class AddNew extends HTMLElement {
         });
 
         this.addNewBtn.addEventListener('click', this.toggle);
-        this.cancelButton.addEventListener('click', this.toggle);
+        this.cancelButton.addEventListener('click', () => {
+            this.input.value = '';
+            this.textarea.value = '';
+            this.idToEdit = null;
+            this.toggle();
+        });
     }
     connectedCallback() {
         this.addNewBtn.classList.add('disable');
@@ -157,6 +162,12 @@ class AddNew extends HTMLElement {
         }
         if (name === 'edit-id') {
             this.idToEdit = newValue;
+
+            const state = NotesDataService.state;
+            const editedNote = state.find((item) => item.id === newValue);
+
+            this.input.value = editedNote.title;
+            this.textarea.value = editedNote.description;
 
             this.toggle();
         }
